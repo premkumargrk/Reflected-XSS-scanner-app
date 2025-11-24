@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XSS Scan Report</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <h2>Scan Report for: {{ url }}</h2>
+
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Parameter</th>
+            <th>Payload</th>
+            <th>Reflected?</th>
+            <th>Snippet</th>
+        </tr>
+
+        {% for r in results %}
+        <tr style="background-color: {% if r.reflected %}#ffcccc{% else %}#ccffcc{% endif %};">
+            <td>{{ r.parameter }}</td>
+            <td>{{ r.payload }}</td>
+            <td>{{ r.reflected }}</td>
+            <td><pre>{{ r.snippet }}</pre></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

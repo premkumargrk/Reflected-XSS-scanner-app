@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reflected XSS Scanner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <h1 class="page-title">Reflected XSS Scanner</h1>
+
+    <div class="form-card">
+        <form action="/scan" method="post">
+
+            <label>Target URL:</label>
+            <input type="text" name="url" required>
+
+            <label>HTTP Method:</label>
+            <select name="method">
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+            </select>
+
+            <label>Parameters (key=value&key2=value2):</label>
+            <input type="text" name="params" required>
+
+            <label>Contexts:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="contexts" value="text"> Text Node</label>
+                <label><input type="checkbox" name="contexts" value="attr-value"> Attribute Value</label>
+                <label><input type="checkbox" name="contexts" value="attr-name"> Attribute Name</label>
+                <label><input type="checkbox" name="contexts" value="js"> JavaScript Context</label>
+            </div>
+
+            <label>Threads:</label>
+            <input type="number" name="threads" value="10">
+
+            <label>Send params as JSON (POST only):</label>
+            <input type="checkbox" name="json_body" value="1">
+
+            <label>Headers (JSON or Header: value per line):</label>
+            <textarea name="headers" rows="3"></textarea>
+
+            <label>Cookies (JSON or name: value per line):</label>
+            <textarea name="cookies" rows="2"></textarea>
+
+            <button type="submit" class="btn">Start Scan</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
