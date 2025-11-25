@@ -64,9 +64,9 @@ Instructions:
 
 sample input to fill the form:
 
-Target URL: https://xss-game.appspot.com/level1/frame
-Parameters: query=test
-Method: GET
-Contexts Selected: Text Node, Attribute Value
-Threads: 10
-
+1.Target URL: https://xss-game.appspot.com/level1/frame
+2.Parameters: query=test
+3.Method: GET
+4.Contexts Selected: Text Node, Attribute Value
+5.Threads: 10
+6. click start scan
